@@ -1,20 +1,17 @@
 import React from "react";
+import { Link } from "react-router";
 
 const BookCard = ({ book }) => {
   const {
     bookName,
     author,
     image,
-    review,
-    totalPages,
     rating,
     category,
     tags,
-    publisher,
-    yearOfPublishing,
   } = book;
   return (
-    <div className="p-6 rounded-2xl border border-gray-200 bg-white w-xs">
+    <Link to = {`/book-info/${book.bookId}`} className="p-6 rounded-2xl border border-gray-200 bg-white w-xs">
       {/* book img */}
       <div className="bg-gray-100 rounded-xl flex items-center justify-center p-6 mb-4">
         <img src={image} alt={bookName} className="h-48 object-contain" />
@@ -42,7 +39,7 @@ const BookCard = ({ book }) => {
           {rating} <span>⭐</span>
         </span>
       </div>
-    </div>
+    </Link>
   );
 };
 

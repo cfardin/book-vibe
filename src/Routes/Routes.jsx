@@ -3,6 +3,7 @@ import HomePage from "../pages/homepage/HomePage";
 import MainLayout from "../Layout/MainLayout";
 import Books from "../pages/books/Books";
 import { Link } from "react-router";
+import BookInfo from "../pages/bookInfo/BookInfo";
 
 export const router = createBrowserRouter([
   {
@@ -17,6 +18,11 @@ export const router = createBrowserRouter([
         path: '/books',
         element : <Books></Books>
       },
+      {
+        path : "/book-info/:id",
+        element : <BookInfo></BookInfo>,
+        loader : () => fetch("/booksData.json").then(res => res.json())
+      }
 
     ],
     errorElement : <div className="m-auto flex flex-col justify-center items-center text-center">
