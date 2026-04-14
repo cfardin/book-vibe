@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router";
 import HomePage from "../pages/homepage/HomePage";
 import MainLayout from "../Layout/MainLayout";
 import Books from "../pages/books/Books";
+import { Link } from "react-router";
 
 export const router = createBrowserRouter([
   {
@@ -21,6 +22,7 @@ export const router = createBrowserRouter([
     errorElement : <div className="m-auto flex flex-col justify-center items-center text-center">
         <h2 className="text-8xl font-bold">404</h2>
         <h3 className="text-5xl">Page not found</h3>
+        <Link to = {'/'} className="btn btn-outline mt-3.5">Home</Link>
     </div>
 
   },
