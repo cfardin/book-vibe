@@ -17,7 +17,7 @@ const BookInfo = () => {
 
   const {image, bookName, author, category, review, tags, totalPages, publisher, yearOfPublishing, rating} = expectedBook;
 
-  const {storedBooks, setStoredBooks, handleMarkAsRead} = useContext(BookContext);
+  const {handleMarkAsRead, handWishList} = useContext(BookContext);
 
 
   return (
@@ -80,7 +80,7 @@ const BookInfo = () => {
             {/* Buttons */}
             <div className="flex gap-4 mt-2">
               <button onClick={()=> handleMarkAsRead(expectedBook)} className="btn btn-outline px-6">Mark as Read</button>
-              <button className="btn bg-cyan-400 text-white px-6">
+              <button onClick={() => handWishList(expectedBook)} className="btn bg-cyan-400 text-white px-6">
                 Add to Wishlist
               </button>
             </div>
