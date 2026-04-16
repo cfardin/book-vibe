@@ -3,6 +3,7 @@ import { BookContext } from "../../Context/BookContext";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import 'react-tabs/style/react-tabs.css';
 import BookList from "../../components/ListedBooks/BookList";
+import WishList from "../../components/ListedBooks/WishLIst";
 
 const Books = () => {
 
@@ -27,6 +28,7 @@ const Books = () => {
         {/* Wish list tab */}
         <TabPanel>
           <h2>Total Books in WishList  : {wishList.length}</h2>
+          <WishList></WishList>
         </TabPanel>
       </Tabs>
     </div>

@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { BookContext } from "../../Context/BookContext";
 
-const BookList = () => {
+const WishList = () => {
 
     const {wishList} = useContext(BookContext)
 
@@ -57,4 +57,4 @@ const BookList = () => {
   );
 };
 
-export default BookList;
+export default WishList;
