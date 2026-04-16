@@ -8,6 +8,8 @@ import { RouterProvider } from 'react-router';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <BookProvider>
+      <RouterProvider router={router} />
+    </BookProvider>
   </StrictMode>,
 )

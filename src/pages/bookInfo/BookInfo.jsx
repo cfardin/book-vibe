@@ -1,4 +1,6 @@
+import { useContext } from "react";
 import { useLoaderData, useParams } from "react-router";
+import { BookContext } from "../../Context/BookContext";
 
 
 // const booksPromise = fetch("/booksData.json").then((res) => res.json());
@@ -13,7 +15,10 @@ const BookInfo = () => {
 
 //   console.log(expectedBook);
 
-    const {image, bookName, author, category, review, tags, totalPages, publisher, yearOfPublishing, rating} = expectedBook;
+  const {image, bookName, author, category, review, tags, totalPages, publisher, yearOfPublishing, rating} = expectedBook;
+
+  const {storedBooks, setStoredBooks, handleMarkAsRead} = useContext(BookContext);
+
 
   return (
     <div>
@@ -74,9 +79,9 @@ const BookInfo = () => {
 
             {/* Buttons */}
             <div className="flex gap-4 mt-2">
-              <button className="btn btn-outline px-6">Read</button>
+              <button onClick={()=> handleMarkAsRead(expectedBook)} className="btn btn-outline px-6">Mark as Read</button>
               <button className="btn bg-cyan-400 text-white px-6">
-                Wishlist
+                Add to Wishlist
               </button>
             </div>
           </div>
