@@ -1,13 +1,30 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { BookContext } from "../../Context/BookContext";
 
-const WishList = () => {
+const WishList = ({sortingType}) => {
+  
+  const {wishList} = useContext(BookContext);
 
-    const {wishList} = useContext(BookContext)
+  const [filterWishList, setFilterWishList] = useState(wishList)
+
+  useEffect(()=>{
+    if(sortingType){
+      if(sortingType === 'pages'){
+        const sortedData = [...wishList].sort((a, b) => a.totalPages - b.totalPages);
+        console.log(sortedData);
+        // eslint-disable-next-line react-hooks/set-state-in-effect
+        setFilterWishList(sortedData);
+      } else {
+        const sortedData = [...wishList].sort((a, b) => a.rating - b.rating);
+        setFilterWishList(sortedData);
+      }
+    }
+  },[sortingType, wishList] )
+
 
   return (
     <div className="flex flex-col gap-4 w-10/12 mx-auto my-8">
-      {wishList.map((book) => (
+      {filterWishList.map((book) => (
         <div key={book.bookId} className="flex gap-6 border rounded-2xl p-4 items-center">
           {/* Image */}
           <div className="bg-gray-100 rounded-xl p-4 w-36 h-36 flex items-center justify-center shrink-0">
